@@ -152,7 +152,7 @@ with st.form("task_form"):
         if total_duration <= available_time:
             st.session_state.tasks.append(Task(task_name, task_duration, task_priority))
             st.success("Task added successfully!")
-            st.return()
+            st.experimental_rerun()
         else:
             st.warning(f"Cannot add task! Total duration will exceed available time ({available_time} minutes)")
 
