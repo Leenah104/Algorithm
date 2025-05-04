@@ -1,5 +1,6 @@
 import streamlit as st
 from dataclasses import dataclass
+from streamlit.experimental import rerun
 
 st.set_page_config(page_title="Task Scheduler", layout="centered")
 
@@ -152,7 +153,7 @@ with st.form("task_form"):
         if total_duration <= available_time:
             st.session_state.tasks.append(Task(task_name, task_duration, task_priority))
             st.success("Task added successfully!")
-            st.experimental_rerun()
+            rerun()
         else:
             st.warning(f"Cannot add task! Total duration will exceed available time ({available_time} minutes)")
 
