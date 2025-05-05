@@ -118,7 +118,7 @@ class TaskSchedulerAI:
         
         while remaining_time > 0 and self.tasks:
     # اختيار المهمة ذات الدرجة الأعلى
-            best_task = max(self.tasks, key=lambda x: self.evaluate(x))
+            best_task = min(self.tasks, key=lambda x: (x.priority, x.duration))
             
             if best_task.duration <= remaining_time:
                 scheduled.append(best_task)
