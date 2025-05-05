@@ -164,9 +164,7 @@ if st.button("Schedule Tasks"):
     scheduler = TaskSchedulerAI(st.session_state.tasks.copy(), available_time)
     scheduled, total_used = scheduler.schedule()
     st.subheader("Scheduled Tasks:")
-    num_tasks = len(scheduled)
     for idx, task in enumerate(scheduled, start=1):
-       display_num = num_tasks - idx + 1
        st.write(f"{display_num}.{task.name} - {task.duration} min - Priority: {task.priority}")
     progress_ratio = total_used / available_time
     st.progress(progress_ratio)
