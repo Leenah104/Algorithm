@@ -165,7 +165,7 @@ if st.button("Schedule Tasks"):
     scheduled, total_used = scheduler.schedule()
     st.subheader("Scheduled Tasks:")
     for idx, task in enumerate(scheduled, start=1):
-       st.write(f"{display_num}.{task.name} - {task.duration} min - Priority: {task.priority}")
+       st.write(f"{i}.{task.name} - {task.duration} min - Priority: {task.priority}")
     progress_ratio = total_used / available_time
     st.progress(progress_ratio)
     st.info(f"Total time used: {total_used} / {available_time} minutes ({progress_ratio:.0%})")
